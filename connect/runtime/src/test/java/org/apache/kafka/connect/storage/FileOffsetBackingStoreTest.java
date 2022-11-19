@@ -58,7 +58,7 @@ public class FileOffsetBackingStoreTest {
     @Before
     public void setup() throws IOException {
         store = new FileOffsetBackingStore();
-        tempFile = File.createTempFile("fileoffsetbackingstore", null);
+        tempFile = Files.createTempFile("fileoffsetbackingstore", null).toFile();
         props = new HashMap<>();
         props.put(StandaloneConfig.OFFSET_STORAGE_FILE_FILENAME_CONFIG, tempFile.getAbsolutePath());
         props.put(StandaloneConfig.KEY_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.json.JsonConverter");
